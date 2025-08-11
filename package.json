@@ -1,0 +1,36 @@
+{
+  "name": "home-broker-simulator",
+  "version": "1.0.0",
+  "description": "A comprehensive home broker trading simulator with real-time order matching",
+  "main": "backend/main.py",
+  "scripts": {
+    "setup": "./setup.sh",
+    "dev": "./run-dev.sh",
+    "start:backend": "./run-backend.sh",
+    "start:frontend": "./run-frontend.sh",
+    "backend": "cd backend && python3 main.py",
+    "frontend": "cd frontend && npm start",
+    "install:backend": "cd backend && pip3 install -r requirements.txt",
+    "install:frontend": "cd frontend && npm install"
+  },
+  "keywords": [
+    "trading",
+    "simulator",
+    "home-broker",
+    "fastapi",
+    "react",
+    "websocket",
+    "order-matching",
+    "fintech"
+  ],
+  "author": "Home Broker Simulator Team",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/raulikeda/algotrad-platform.git"
+  },
+  "bugs": {
+    "url": "https://github.com/raulikeda/algotrad-platform/issues"
+  },
+  "homepage": "https://github.com/raulikeda/algotrad-platform#readme"
+}
