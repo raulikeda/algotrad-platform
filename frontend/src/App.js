@@ -7,8 +7,8 @@ import TradeHistory from './components/TradeHistory';
 import UserBalance from './components/UserBalance';
 import MarketData from './components/MarketData';
 
-const API_BASE = process.env.REACT_APP_API_URL || 'http://localhost:8001';
-const WS_URL = process.env.REACT_APP_WS_URL || 'ws://localhost:8001/ws';
+const API_BASE = process.env.REACT_APP_API_URL || 'http://54.81.44.189:8001';
+const WS_URL = process.env.REACT_APP_WS_URL || 'ws://54.81.44.189:8001/ws';
 
 function App() {
   // State management

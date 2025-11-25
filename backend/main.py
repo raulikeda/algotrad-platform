@@ -25,11 +25,29 @@ app = FastAPI(title="Home Broker Simulator", version="1.0.0")
 # CORS middleware
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost"],  # React dev server
+    allow_origins=[
+        "http://54.81.44.189",      # Without port
+        "http://54.81.44.189:80",   # HTTP default port
+        "http://54.81.44.189:3000", # React dev port
+        "https://54.81.44.189",     # HTTPS without port
+        "https://54.81.44.189:443", # HTTPS default port
+        "http://localhost:3000",    # Local development
+        "http://localhost:80",      # Local HTTP
+        "*"                         # Allow all origins temporarily for debugging
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+# Debug middleware to log all requests
+@app.middleware("http")
+async def debug_requests(request, call_next):
+    logger.info(f"Request: {request.method} {request.url}")
+    logger.info(f"Headers: {dict(request.headers)}")
+    response = await call_next(request)
+    logger.info(f"Response status: {response.status_code}")
+    return response
 
 # Global state
 users: Dict[str, User] = {}
